@@ -1,0 +1,379 @@
+/* ========================================
+   ROOT VARIABLES
+   ======================================== */
+
+:root {
+  --bg-color: #f5f4e2;
+  --text-color: #000000;
+  --primary-green: #85a538;
+  --dim-green: #5e8942;
+  --font-family: "Courier New", monospace;
+  --body-padding: 20px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --panel-bg: #ffffff;
+  --panel-border: #d4d4d4;
+  --glow-strong: 0 0 20px #85a538;
+  --glow-soft: 0 0 8px #85a538;
+  --console-bg: rgba(0, 0, 0, 0.75);
+}
+
+/* ========================================
+   HOFLADEN THEME
+   ======================================== */
+
+.theme-hofladen {
+  --bg-color: #f5f4e2;
+  --text-color: #000000;
+  --primary-green: #85a538;
+  --dim-green: #5e8942;
+  --glow-strong: 0 0 20px #85a538;
+  --glow-soft: 0 0 8px #85a538;
+  --console-bg: rgba(0, 0, 0, 0.75);
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.03) 0px,
+    rgba(0, 255, 0, 0.03) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  padding: 0;
+  margin: 0;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 262px; /* Sidebar (220px) + Border (2px) */
+  right: 0;
+  height: 60px;
+  background: var(--primary-green);
+  color: white;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--glow-soft);
+  z-index: 99;
+}
+
+.header-logo h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-md);
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-shadow: var(--glow-strong);
+}
+
+/* ========================================
+   SIDEBAR
+   ======================================== */
+
+.sidebar {
+  width: 220px;
+  background: var(--console-bg);
+  padding: var(--spacing-md);
+  border-right: 2px solid var(--primary-green);
+  box-shadow: var(--glow-soft);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: var(--spacing-md);
+}
+
+.sidebar a {
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar a:hover {
+  color: var(--dim-green);
+  text-shadow: var(--glow-soft);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 262px; /* Sidebar (220px) + Border (2px) */
+  right: 0;
+  background: var(--primary-green);
+  color: white;
+  text-align: center;
+  padding: var(--spacing-sm);
+  font-size: 0.9rem;
+  box-shadow: var(--glow-soft);
+  z-index: 99;
+}
+
+/* ========================================
+   GRID SYSTEM
+   ======================================== */
+
+/* Startseite Grid - 2 Spalten, zentriert */
+.grid-startseite {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: var(--spacing-md);
+  margin-left: 240px;
+  margin-right: auto;
+  padding: 40px;
+  padding-top: 80px; /* Platz für fixierten Header */
+  padding-bottom: 60px; /* Platz für fixierten Footer */
+  max-width: 900px;
+}
+
+/* Lagerverwaltung Grid - 3 Spalten oben, volle Breite unten */
+.grid-lagerverwaltung {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: var(--spacing-md);
+  margin-left: 240px;
+  padding: 40px;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  max-width: 1400px;
+}
+
+/* Administration Grid - 3 Spalten */
+.grid-administration {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: var(--spacing-md);
+  margin-left: 240px;
+  padding: 40px;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  max-width: 1400px;
+}
+
+/* ========================================
+   MODULES
+   ======================================== */
+
+.module {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.module:hover {
+  box-shadow: 0 4px 16px rgba(133, 165, 56, 0.2);
+  transform: translateY(-2px);
+}
+
+.module-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.module-link:hover {
+  transform: scale(1.02);
+}
+
+/* Module-Titel Styling */
+.module h2,
+.module h3 {
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.3rem;
+}
+
+.module p {
+  line-height: 1.6;
+  margin: var(--spacing-sm) 0;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.admin-btn {
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 100%;
+  margin-top: var(--spacing-sm);
+  box-shadow: var(--glow-soft);
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.admin-btn:hover {
+  background: var(--dim-green);
+  transform: scale(1.03);
+}
+
+.admin-btn-danger {
+  background: #c0392b;
+}
+
+.admin-btn-danger:hover {
+  background: #e74c3c;
+  transform: scale(1.03);
+}
+
+.admin-box {
+  text-align: center;
+}
+
+/* ========================================
+   LAGERVERWALTUNG & POS - SPEZIELLE STYLES
+   ======================================== */
+
+/* Lager Module & POS Module Grundstyle */
+.lager-module {
+  background-color: var(--primary-green);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+.lager-module:hover {
+  background-color: var(--dim-green);
+}
+
+/* Bestandspflege - Heller grüner Hintergrund */
+.lager-module#bestand {
+  background-color: var(--primary-green);
+}
+
+.lager-module#bestand:hover {
+  background-color: var(--dim-green);
+}
+
+/* Berichte - Heller grüner Hintergrund */
+.lager-module#berichte {
+  background-color: var(--primary-green);
+}
+
+.lager-module#berichte:hover {
+  background-color: var(--dim-green);
+}
+
+/* Verwaltung - Heller grüner Hintergrund */
+.lager-module#verwaltung {
+  background-color: var(--primary-green);
+}
+
+.lager-module#verwaltung:hover {
+  background-color: var(--dim-green);
+}
+
+/* Report Modul - nimmt volle Breite */
+.report-module {
+  grid-column: 1 / -1;
+  background-color: var(--primary-green);
+}
+
+.report-module label {
+  display: inline;
+  margin-right: var(--spacing-sm);
+  font-weight: normal;
+}
+
+.report-module select,
+.report-module input[type="number"] {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  background-color: white;
+  font-family: var(--font-family);
+}
+
+.report-module input[type="number"] {
+  width: 100px;
+}
+
+.report-module button {
+  background-color: white;
+  color: var(--primary-green);
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.report-module button:hover {
+  background-color: var(--dim-green);
+  color: white;
+}
+
+/* Tabellen Modul - nimmt volle Breite */
+.table-module {
+  grid-column: 1 / -1;
+  background-color: #e0e0e0;
+}
+
+.table-module p {
+  margin: 5px 0;
+}
+
+/* Login/Logout Button in Administration - nimmt volle Breite */
+.login-module {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
