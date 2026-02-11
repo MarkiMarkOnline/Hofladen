@@ -9,7 +9,7 @@
 define('ROOT_PATH', dirname(__DIR__));
 
 // Basis-URL relativ zur Webroot (anpassen falls nötig)
-define('BASE_URL', '/PROJEKT_KUNDENAUFTRAG/public');
+define('BASE_URL', '/Hofladen/public');
 
 // Asset-Version für Cache-Busting
 define('ASSET_VERSION', '1.0');
